@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>506901322194-9non9ej60472bb0ns9gp8p0aiv0hp51p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.506901322194-9non9ej60472bb0ns9gp8p0aiv0hp51p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyALwbMzPXntc6YNTYpmvPeK-l0iticMnbI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>506901322194</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterApplication1</string>
+	<key>PROJECT_ID</key>
+	<string>peppy-strategy-335213</string>
+	<key>STORAGE_BUCKET</key>
+	<string>peppy-strategy-335213.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:506901322194:ios:ab46df046adf585f60d00b</string>
+</dict>
+</plist>

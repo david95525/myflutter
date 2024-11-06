@@ -1,0 +1,17 @@
+{
+    "EnUS": "English(US)",
+    "ZhTW": "Chinese(Taiwan)",
+    "HomeTitle": "home page",
+    "Home": "Home",
+    "Weather": "Weather",
+    "Login": "Login",
+    "Localstorage": "Localstorage",
+    "Language": "language",
+    "Averagetemp": "Average Temperature",
+    "Age": "Age",
+    "Height": "Height",
+    "Weight": "Weight",
+    "Pulse": "Pulse",
+    "BloodPressure": "Blood Pressure",
+    "BodyTemperature": "Body Temperature"
+}

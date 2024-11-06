@@ -1,0 +1,17 @@
+{
+  "EnUS": "英文(美國)",
+  "ZhTW": "中文(台灣)",
+  "HomeTitle": "首頁頁面",
+  "Home": "首頁",
+  "Weather": "天氣",
+  "Login": "登入",
+  "Localstorage": "本地儲存",
+  "Language": "語言",
+  "Averagetemp": "平均氣溫",
+  "Age": "年齡",
+  "Height": "身高",
+  "Weight": "體重",
+  "Pulse": "脈搏",
+  "BloodPressure": "血壓",
+  "BodyTemperature": "體溫"
+}

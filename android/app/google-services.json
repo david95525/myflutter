@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506901322194",
+    "project_id": "peppy-strategy-335213",
+    "storage_bucket": "peppy-strategy-335213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506901322194:android:c6802734b87c4b8c60d00b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506901322194-2lug9v9vjtmks7di6kdv5mdhc6fitj37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7Le-COITsQox7bQiN-3YsJSORJWbWeJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506901322194-2lug9v9vjtmks7di6kdv5mdhc6fitj37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
