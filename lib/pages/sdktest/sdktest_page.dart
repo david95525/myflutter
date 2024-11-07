@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SDKTestPage extends StatefulWidget {
@@ -11,7 +12,7 @@ class SDKTestPage extends StatefulWidget {
 
 class _SDKTestPageState extends State<SDKTestPage> {
   String _batteryLevel = 'Unknown battery level.';
-  static const platform = MethodChannel('samples.flutter.dev/battery');
+  static const platform = MethodChannel('samples.flutter.dev/setting');
   @override
   void initState() {
     super.initState();

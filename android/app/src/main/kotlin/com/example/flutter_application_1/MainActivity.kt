@@ -11,14 +11,14 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
+import android.provider.Settings
 
 class MainActivity: FlutterActivity() {
-  private val CHANNEL = "samples.flutter.dev/battery"
+  private val CHANNEL = "samples.flutter.dev/settings"
 
   override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
     super.configureFlutterEngine(flutterEngine)
      MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
-      // This method is invoked on the main thread.
       call, result ->
       if (call.method == "getBatteryLevel") {
         val batteryLevel = getBatteryLevel()
@@ -31,8 +31,18 @@ class MainActivity: FlutterActivity() {
       } else {
         result.notImplemented()
       }
+      if (call.method == "openBluetoothSettings") {
+        openBluetoothSettings()
+        result.success(null)
+      } else {
+        result.notImplemented()
+      }
     }
   }
+    private fun openBluetoothSettings() {
+        val intent = Intent(Settings.ACTION_BLUETOOTH_SETTINGS)
+        startActivity(intent)
+    }
     private fun getBatteryLevel(): Int {
     val batteryLevel: Int
     if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {

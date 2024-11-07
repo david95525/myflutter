@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -21,6 +22,7 @@ class _BluetoothPageState extends State<BluetoothPage> {
   final flutterReactiveBle = FlutterReactiveBle();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final serviceuuid = Uuid.parse("CDEACB81-5235-4C07-8846-93A37EE6B86D");
+  static const platform = MethodChannel("samples.flutter.dev/settings");
   String deviceid = "";
   @override
   void initState() {
@@ -107,29 +109,32 @@ class _BluetoothPageState extends State<BluetoothPage> {
   }
 
   void _permission() async {
-    if (await Permission.location.serviceStatus.isEnabled) {
-      debugPrint('Location services is enabled');
-    } else {
-      debugPrint('Location services is NOT enabled');
-    }
-    if (await Permission.location.status.isGranted) {
-      debugPrint('Location permission is granted');
-    } else {
+    // if (await Permission.location.serviceStatus.isEnabled) {
+    //   debugPrint('Location services is enabled');
+    // } else {
+    //   debugPrint('Location services is NOT enabled');
+    // }
+    var status = await Permission.location.status;
+    if (!status.isGranted) {
       debugPrint('Location permission is not granted');
-      await [
-        Permission.location,
-      ].request();
-      var status = await Permission.location.status;
+      await Permission.location.request();
+    }
+    var blestatusisGranted = await Permission.bluetooth.request().isGranted;
+    if (!blestatusisGranted) {
+      debugPrint('ble is not granted');
+      await platform.invokeMethod("openBluetoothSettings");
+      await Permission.bluetooth.request();
     }
     var ScanStatus = await Permission.bluetoothScan.status;
-    if (ScanStatus.isGranted) {
-    } else {
+    if (!ScanStatus.isGranted) {
+      debugPrint('Scan permission is not granted');
       await Permission.bluetoothScan.request();
     }
     var ConnectStatus = await Permission.bluetoothConnect.status;
     if (ConnectStatus.isGranted) {
       _scanDevice();
     } else {
+      debugPrint('Connect permission is NOT enabled');
       await Permission.bluetoothConnect.request();
       _scanDevice();
     }
