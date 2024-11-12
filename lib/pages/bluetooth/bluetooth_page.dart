@@ -27,6 +27,20 @@ class _BluetoothPageState extends State<BluetoothPage> {
   @override
   void initState() {
     super.initState();
+    flutterReactiveBle.statusStream.listen((status) async {
+      // if (status == BleStatus.poweredOff) {
+      //   try {
+      //     await platform.invokeMethod("openBluetoothSettings");
+      //   } on PlatformException catch (e) {
+      //     debugPrint("Failed to open Bluetooth settings: ${e.message}");
+      //   }
+      // }
+      if (status == BleStatus.locationServicesDisabled) {
+        debugPrint('Location permission is not granted');
+        await Permission.location.request();
+      }
+      //code for handling status update
+    });
   }
 
   @override
@@ -109,22 +123,6 @@ class _BluetoothPageState extends State<BluetoothPage> {
   }
 
   void _permission() async {
-    // if (await Permission.location.serviceStatus.isEnabled) {
-    //   debugPrint('Location services is enabled');
-    // } else {
-    //   debugPrint('Location services is NOT enabled');
-    // }
-    var status = await Permission.location.status;
-    if (!status.isGranted) {
-      debugPrint('Location permission is not granted');
-      await Permission.location.request();
-    }
-    var blestatusisGranted = await Permission.bluetooth.request().isGranted;
-    if (!blestatusisGranted) {
-      debugPrint('ble is not granted');
-      await platform.invokeMethod("openBluetoothSettings");
-      await Permission.bluetooth.request();
-    }
     var ScanStatus = await Permission.bluetoothScan.status;
     if (!ScanStatus.isGranted) {
       debugPrint('Scan permission is not granted');
@@ -251,24 +249,24 @@ class _BluetoothPageState extends State<BluetoothPage> {
     }, onError: (dynamic error) {});
   }
 }
-  //Read characteristic
-    // final response =
-    //     await flutterReactiveBle.readCharacteristic(characteristic);
-    //Write with response
-    // await flutterReactiveBle
-    //     .writeCharacteristicWithResponse(characteristic, value: [0x00]);
-    //Write without response
-    // await flutterReactiveBle
-    //     .writeCharacteristicWithoutResponse(characteristic, value: [0x00]);
-    //Negotiate MTU size
-    // final mtu =
-    //     await flutterReactiveBle.requestMtu(deviceId: deviceId, mtu: 250);
+//Read characteristic
+// final response =
+//     await flutterReactiveBle.readCharacteristic(characteristic);
+//Write with response
+// await flutterReactiveBle
+//     .writeCharacteristicWithResponse(characteristic, value: [0x00]);
+//Write without response
+// await flutterReactiveBle
+//     .writeCharacteristicWithoutResponse(characteristic, value: [0x00]);
+//Negotiate MTU size
+// final mtu =
+//     await flutterReactiveBle.requestMtu(deviceId: deviceId, mtu: 250);
 
-    /**Android specific operations**/
-    //Request connection priority
-    //Be cautious when setting the priority when communicating with multiple devices because
-    //if you set highperformance for all devices the effect of increasing the priority will be lower
-    // await flutterReactiveBle.requestConnectionPriority(
-    //     deviceId: deviceId, priority: ConnectionPriority.highPerformance);
-    //Clear GATT cache
-    // await flutterReactiveBle.clearGattCache(deviceId);
+/**Android specific operations**/
+//Request connection priority
+//Be cautious when setting the priority when communicating with multiple devices because
+//if you set highperformance for all devices the effect of increasing the priority will be lower
+// await flutterReactiveBle.requestConnectionPriority(
+//     deviceId: deviceId, priority: ConnectionPriority.highPerformance);
+//Clear GATT cache
+// await flutterReactiveBle.clearGattCache(deviceId);
