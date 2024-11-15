@@ -3,6 +3,7 @@ import 'package:flutter_example/localizations.dart';
 import 'package:flutter_example/my_router.dart';
 import 'package:flutter_example/pages/bluetooth/bluetooth_page.dart';
 import 'package:flutter_example/pages/local_storage/local_storage.dart';
+import 'package:flutter_example/pages/scanBP/scanBP_page.dart';
 import 'package:flutter_example/pages/sdktest/sdktest_page.dart';
 
 import 'pages/home/home_page.dart';
@@ -20,7 +21,8 @@ class _IndexAppState extends State<IndexApp> {
     HomePage(),
     LocalStorageApp(),
     BluetoothPage(),
-    SDKTestPage()
+    SDKTestPage(),
+    ScanBPPage()
   ];
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -37,6 +39,8 @@ class _IndexAppState extends State<IndexApp> {
           icon: Icon(Icons.bluetooth), label: "Bluetooth"),
       const BottomNavigationBarItem(
           icon: Icon(Icons.storage), label: "sdktest"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.storage), label: "scanbp"),
     ];
 
     return DefaultTabController(
