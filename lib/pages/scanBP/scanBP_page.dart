@@ -11,7 +11,7 @@ class ScanBPPage extends StatefulWidget {
 }
 
 class _ScanBPPageState extends State<ScanBPPage> {
-  String? sys;
+  String? sys = "";
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -51,7 +51,11 @@ class _ScanBPPageState extends State<ScanBPPage> {
     String url = uri.toString();
     final result = await FlutterWebAuth2.authenticate(
         url: url, callbackUrlScheme: 'flutterwebauth-flutterproject-com');
-    String? sys = Uri.parse(result).queryParameters['sys'];
-    debugPrint(sys);
+    debugPrint(result);
+    String? sysResult = Uri.parse(result).queryParameters['sys'];
+    debugPrint(sysResult);
+    setState(() {
+      sys = sysResult ?? "";
+    });
   }
 }
