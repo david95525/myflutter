@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 
-Uri uri = Uri.https('ocrresearch.azurewebsites.net', '/AiVision/Index',
+Uri uri = Uri.https('research-project-cahrfbecgvg9cme4.westus-01.azurewebsites.net', '/AiVision/Index',
     {'redirect_uri': 'flutterwebauth-flutterproject-com://'});
 
 class ScanBPPage extends StatefulWidget {
