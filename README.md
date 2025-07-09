@@ -1,4 +1,4 @@
-# flutter_example
+# myflutter
 
 This project is a starting point for a Flutter application.
 
