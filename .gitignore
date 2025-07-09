@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/release
 api-keys.json
 lib/firebase_options.dart
+android/gradle/wrapper/gradle-wrapper.properties
